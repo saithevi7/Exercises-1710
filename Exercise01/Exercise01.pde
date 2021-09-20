@@ -11,7 +11,7 @@ float triangleSize = 120;
 
 // background size and colour
 void setup() {
-  size(800, 600); 
+  size(800, 600, P2D); 
   background(bgColor);
 }
 
