@@ -7,10 +7,12 @@ void setup() {
   size(640, 480, P2D);
   
   img1 = loadImage("starfox.png");
-  img2 = loadImage("aliens.jpg");
+  //img2 = loadImage("aliens.jpg");
+  img2 = loadImage("Bmmain.gif");
   
   pos1 = new PVector(300, 300);
   pos2 = new PVector(width, height);
+  
   
   shp = createShape();
   shp.beginShape();
@@ -20,6 +22,7 @@ void setup() {
   shp.vertex(pos2.x, pos2.y);
   shp.vertex(0, 0);
   shp.endShape();
+  
   pos = 0;
 }
 
@@ -27,9 +30,9 @@ void draw() {
   imageMode(CORNER);
   image(img1, 0, 0, width, height);
   
-  pos = pos + 1;
-  if(pos > 100) {
-    pos = 0;
+  pos = pos + 4;
+  if(pos > 480) {
+    pos *= -1;
   }
   
   imageMode(CENTER);
@@ -44,5 +47,5 @@ void draw() {
   stroke(0, 255, 0);
   line(pos1.x, pos1.y, pos2.x, pos2.y);
   
-  // shape(shp);  
+  //shape(shp);  
 }
