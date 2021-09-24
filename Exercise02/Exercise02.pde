@@ -1,51 +1,48 @@
-PImage img1, img2;
-PVector pos1, pos2;
-PShape shp;
-Integer pos;
+PImage img1;
+color bgColor = color(102, 178, 255);
+
+/*  
+collision handling code example used from the lecture and example
+from https://processing.org/examples/bounce.html 
+*/
+
+int size = 80;
+
+float posX, posY;
+
+float speedX = 4;
+float speedY = 4;
+
+float directionX = 1;
+float directionY = 1;
+
 
 void setup() {
-  size(640, 480, P2D);
-  
-  img1 = loadImage("starfox.png");
-  //img2 = loadImage("aliens.jpg");
-  img2 = loadImage("Bmmain.gif");
-  
-  pos1 = new PVector(300, 300);
-  pos2 = new PVector(width, height);
-  
-  
-  shp = createShape();
-  shp.beginShape();
-  shp.stroke(255, 0, 0);
-  shp.fill(0, 255, 0);
-  shp.vertex(pos1.x, pos1.y);
-  shp.vertex(pos2.x, pos2.y);
-  shp.vertex(0, 0);
-  shp.endShape();
-  
-  pos = 0;
+size(800, 600, P2D);
+frameRate(60);
+
+
+img1 = loadImage("Bmmain.gif");
+posX = 150;
+posY = 360;
+
 }
 
 void draw() {
-  imageMode(CORNER);
-  image(img1, 0, 0, width, height);
+ background (bgColor);
+ fill(40, 1, 55);
+ rect(150, 320, 500, 200);
+ 
+ posX = posX + (speedX * directionX);
+ posY = posY + (speedY * directionY);
+ 
+ if (posX > width-size || posX < 0) {
+     directionX *= -1; 
+ }
+ if (posY > height-size || posY < 0) {
+     directionY *= -1;
+ }
+ 
+ image(img1, posX, posY, size, size);
   
-  pos = pos + 4;
-  if(pos > 480) {
-    pos *= -1;
-  }
-  
-  imageMode(CENTER);
-  image(img2, 0, pos, 50, 50);
-  
-  strokeWeight(20);
-  stroke(255, 0, 0);
-  point(pos1.x, pos1.y);
-  point(pos2.x, pos2.y);
-  
-  strokeWeight(10);
-  stroke(0, 255, 0);
-  line(pos1.x, pos1.y, pos2.x, pos2.y);
-  
-  //shape(shp);  
 }
