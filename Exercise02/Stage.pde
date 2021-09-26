@@ -1,3 +1,7 @@
+/*
+class for the attempted sketch 
+for the map called "Final Destination"
+*/
 class Stage {
  
   void draw() {
@@ -50,9 +54,5 @@ class Stage {
    triangle(300, 500, 350, 520, 190, 580);
    triangle(400, 600, 380, 420, 490, 520);
    triangle(500, 500, 450, 620, 590, 480); 
-   
-   
   }
-  
-  
 }

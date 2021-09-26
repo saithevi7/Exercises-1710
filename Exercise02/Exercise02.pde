@@ -1,3 +1,11 @@
+/* Sairus Pradhan (218946467)
+LE EECS 1710 - Lab 1
+09 / 21/ 2021
+Exercise 2 
+Made a Super Smash map with characters and smash ball
+*/
+
+// Variables for image and class
 PImage img1, img2, img3, img4;
 Stage stage;
 
@@ -38,21 +46,26 @@ float speed2X = 4;
 float direction2X = 1;
 
 
-
+// setup 
 void setup() {
 size(800, 600, P2D);
 frameRate(60);
 
+// Inital position of Black mage
 posX = 150;
 posY = 360;
 
+// Random position of Smash Ball
 ball_posX = random(800);
 ball_posY = random(600);
 
+// Initial position of Kirby
 pos2X = 300;
 
+// define stage class
 stage = new Stage();
 
+// Find image
 img1 = loadImage("Bmmain.gif");
 img2 = loadImage("Smash_ball.png");
 img3 = loadImage("kirby.png");
@@ -60,12 +73,15 @@ img4 = loadImage("galaxy.jpg");
 
 }
 
+// Printing process
 void draw() {
+ // print image for background
  image(img4, 0, 0, width, height); 
 
+ // draw from stage class
  stage.draw();
 
- // Collision handling for Black Mage
+ // Movement and Collision handling for Black Mage
  posX = posX + (speedX * directionX);
  posY = posY + (speedY * directionY);
  
@@ -76,7 +92,7 @@ void draw() {
      directionY *= -1;
  }
  
- // Collision handling for the Smash Ball
+ // Movement and Collision handling for the Smash Ball
  ball_posX = ball_posX + (ball_speedX * ball_directionX);
  ball_posY = ball_posY + (ball_speedY * ball_directionY);
  
@@ -87,13 +103,14 @@ void draw() {
      ball_directionY *= -1;    
  }
     
- // Collision handling for Kirby
+ // Movement and Collision handling for Kirby
  pos2X = pos2X + (speed2X * direction2X);
   
  if (pos2X > 600 || pos2X < 120) {
    direction2X *= -1;
  }
-   
+ 
+ // Print images
  image(img1, posX, posY, size, size);
  
  image(img2, ball_posX, ball_posY, ball_size, ball_size);
