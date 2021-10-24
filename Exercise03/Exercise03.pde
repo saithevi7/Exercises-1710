@@ -4,6 +4,8 @@ LE EECS 1710 - Lab 1
 Exercise 3
 */
 
+// https://processing.org/examples/clock.html
+
 // variables
 int clockX, clockY;
 float secondsRadius;
