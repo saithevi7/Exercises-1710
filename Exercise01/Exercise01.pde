@@ -33,7 +33,7 @@ void draw() {
   // triangle constantly drawn from fixed position to the position of mouse
   line(mouseX, mouseY, pmouseX, pmouseY);
   fill(244, 244, 244);
-    triangle(mouseX, mouseY, triangleSize, triangleSize, 81, 81);
+  triangle(mouseX, mouseY, triangleSize, triangleSize, 81, 81);
   
   // sun 
   fill(255, 255, 102);
