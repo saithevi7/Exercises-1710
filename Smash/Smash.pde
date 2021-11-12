@@ -83,14 +83,15 @@ collisionSound.cue(0);
 kirbySound = new SoundFile(this, "cute.wav"); //https://freesound.org/people/ohhmye/sounds/561350/
 kirbySound.cue(0);
 
+// object that controls output volume
 s = new Sound(this);
 }
 
 // Printing and sound process
 void draw() {
  /*https://processing.org/reference/libraries/sound/Sound_volume_.html
-  Control volume of the sound depending on Y value of the mouse.
-  The lower the y-value, the higher the volume and the higher the y-value, the lower the volume.
+  Control volume of the sound depending on Y value of the mouse
+  The lower the y-value, the higher the volume and the higher the y-value, the lower the volume
  */ 
  float amplitude = map(mouseY, 0, height, 0.4, 0.0);
   
