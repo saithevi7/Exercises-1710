@@ -74,6 +74,10 @@ img2 = loadImage("Smash_ball.png");
 img3 = loadImage("kirby.png");
 img4 = loadImage("galaxy.jpg");
 
+// sounds
+soundCollision = new SoundFile(this, "collision.wav");
+soundCollision.cue(0);
+
 }
 
 // Printing process
@@ -90,9 +94,13 @@ void draw() {
  
  if (posX > width-size || posX < 0) {
      directionX *= -1; 
+     soundCollision.rate(random(0.6, 0.8));
+     soundCollision.jump(0);
  }
  if (posY > height-200 || posY < 0) {
      directionY *= -1;
+     soundCollision.rate(random(0.6, 0.8));
+     soundCollision.jump(0);
  }
  
  // Movement and Collision handling for the Smash Ball
