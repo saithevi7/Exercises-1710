@@ -5,6 +5,8 @@ Exercise 5
 Used code from exercise 2 and added sound to it
 */
 
+import processing.sound.*;
+
 // Variables for image and class
 PImage img1, img2, img3, img4;
 Stage stage;
@@ -45,6 +47,7 @@ float speed2X = 4;
 
 float direction2X = 1;
 
+SoundFile soundCollision;
 
 // setup 
 void setup() {
