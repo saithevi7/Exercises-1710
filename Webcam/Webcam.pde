@@ -1,34 +1,33 @@
 /* Sairus Pradhan (218946467)
 LE EECS 1710 - Lab 1
-11 / 04/ 2021
+11 / 15/ 2021
 Exercise 06
 
 https://github.com/CodingTrain/website/blob/main/Tutorials/Processing/11_video/sketch_16_1_particles_capture/sketch_16_1_particles_capture.pde
 From "The Coding Train" video: https://www.youtube.com/watch?v=WH31daSj4nc
 
 I found this extremely cool pixel effect that can be implemented into the
-camera and I mixed it with some other cool camera effects.
+camera and I mixed it with a flip effect.
 */
 
-
+// variables 
 import processing.video.*;
 Particle[] particles;
 
 Capture video;
+int flip = 0;
 
-
+// setup "pipeline:autovideosrc" helped me with my camera problems.
 void setup() {
  size (800, 600);
  video = new Capture(this, 800, 600, "pipeline:autovideosrc");
  video.start();
  particles = new Particle [100];
  
- 
- for (int i=0; i < particles.length; i++) {
+// loop for paritcle effect 
+ for(int i=0; i < particles.length; i++) {
    particles[i] = new Particle();
- }
- background(0);
- 
+ } 
 }
 
 void captureEvent(Capture video) {
@@ -36,43 +35,27 @@ void captureEvent(Capture video) {
 }
 
 void draw() {
-  
-   for (int i=0; i < particles.length; i++) {
+   // draw the loop from the particle class  
+   for(int i=0; i < particles.length; i++) {
     particles[i].display();
     particles[i].move();
   }
- 
-  loadPixels();
-  video.loadPixels(); 
-  
-  // brightness adjustment
-  for (int x = 0; x < video.width; x++) {
-    for (int y = 0; y < video.height; y++) {
-      // Calculate the 1D location from a 2D grid
-      int loc = x + y * video.width;
-
-      /* Played around with the brightness and colour
-         Instead of a plain flash light, we have different colors
-         r,g,b values from selected image */
-      
-      float r = red  (video.pixels[loc]);
-      float g = green(video.pixels[loc]);
-      float b = blue (video.pixels[loc]);
-
-      // brightness 
-      float d = dist(x, y, mouseX, mouseY);  
-      float adjustbrightness = map(d, 0, 100, 4, 0);
-      r *= adjustbrightness;
-     
-      // Constrain green to a range 
-      g = constrain(g, 0, 255);
-    
-      /// new color and set pixel
-      color c = color(r, g, b);
-      pixels[loc] = c;
-    }
+  // video upside down and randomly change colour depending on mouse cords
+  if(flip == 1) {
+    tint(mouseX, mouseY, random(255)); // Warning: slight flashing lights.
+    scale(-1, -1);
+    image(video, -width, -height);
   }
-
-  updatePixels();
-  
 }
+
+
+void keyPressed() {
+  if(key == ENTER) {
+    flip = 1; // flip image
+  }
+  
+  else if(key == BACKSPACE) {
+    flip = 0; // reset to particles effect
+  }
+}
+  
