@@ -1,4 +1,5 @@
-/* Sairus Pradhan (218946467)
+/* 
+Sairus Pradhan (218946467)
 LE EECS 1710 - Lab 1
 11 / 15/ 2021
 Exercise 06
@@ -17,7 +18,9 @@ Particle[] particles;
 Capture video;
 int flip = 0;
 
-// setup "pipeline:autovideosrc" helped me with my camera problems.
+/* setup "pipeline:autovideosrc" helped me with my camera problems.
+ https://discourse.processing.org/t/processing-cant-find-the-camera-video-libraries-dont-work/25128/24
+ from neilcsmith */
 void setup() {
  size (800, 600);
  video = new Capture(this, 800, 600, "pipeline:autovideosrc");
