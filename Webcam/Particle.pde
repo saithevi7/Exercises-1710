@@ -1,5 +1,6 @@
-// https://github.com/CodingTrain/website/blob/main/Tutorials/Processing/11_video/sketch_16_1_particles_capture/Particle.pde
-// From "The Coding Train" video: https://www.youtube.com/watch?v=WH31daSj4nc
+/* https://github.com/CodingTrain/website/blob/main/Tutorials/Processing/11_video/sketch_16_1_particles_capture/Particle.pde
+From "The Coding Train" video: https://www.youtube.com/watch?v=WH31daSj4nc 
+A very cool particle effect that makes out users face */
 class Particle {
   // variables 
   float x;
@@ -28,8 +29,8 @@ class Particle {
 
   // pixel movement
   void move() {
-    x = x + vx;//random(-5, 5);
-    y = y + vy;//random(-5, 5);
+    x = x + vx;
+    y = y + vy;
     if (y < 0) {
       y = height;
     } 
