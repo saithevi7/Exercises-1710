@@ -5,7 +5,7 @@ LE EECS 1710 - Lab 1
 Exercise 06
 
 https://github.com/CodingTrain/website/blob/main/Tutorials/Processing/11_video/sketch_16_1_particles_capture/sketch_16_1_particles_capture.pde
-From "The Coding Train" video: https://www.youtube.com/watch?v=WH31daSj4nc
+From Daniel Shiffman and "The Coding Train" video: https://www.youtube.com/watch?v=WH31daSj4nc
 
 I found this extremely cool pixel effect that can be implemented into the
 camera and I mixed it with a flip effect.
